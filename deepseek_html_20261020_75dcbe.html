@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin Panel</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#f0f2f5;color:#1f2937;padding:15px}
+.wrap{max-width:1000px;margin:0 auto}
+header{display:flex;align-items:center;justify-content:space-between;background:#fff;padding:16px;border-radius:14px;margin-bottom:20px}
+header h1{font-size:16px;color:#7a0c2e}
+.nav-tabs{display:flex;gap:8px;margin-bottom:20px}
+.nav-tabs button{padding:10px 14px;border-radius:8px;background:#fff;font-weight:600;font-size:13px;color:#6b7280;border:0;cursor:pointer}
+.nav-tabs button.active{background:#7a0c2e;color:#fff}
+.card{background:#fff;border-radius:14px;padding:20px;box-shadow:0 2px 10px rgba(0,0,0,.05);margin-bottom:20px}
+.card h2{font-size:15px;color:#111827;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th,td{padding:10px 8px;text-align:left;border-bottom:1px solid #f1f2f4}
+th{font-size:10px;text-transform:uppercase;color:#6b7280;background:#fafafa}
+.btn{background:#7a0c2e;color:#fff;padding:9px 16px;border-radius:8px;font-weight:600;font-size:13px;border:0;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.btn.gray{background:#e5e7eb;color:#374151}
+.btn:disabled{opacity:.5}
+input[type=file],input[type=text]{padding:10px;border:1.5px solid #d1d5db;border-radius:10px;width:100%;background:#fafafa;font-size:13px;margin-bottom:10px}
+.status{font-size:12px;color:#6b7280;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1><i class="fas fa-shield-alt"></i> Admin Panel</h1>
+    <a href="index.html" class="btn gray" style="text-decoration:none;font-size:12px"><i class="fas fa-home"></i> App</a>
+  </header>
+  <div class="nav-tabs">
+    <button class="active" data-tab="leads">Leads</button>
+    <button data-tab="upload">Settings</button>
+  </div>
+  <div id="tab-leads">
+    <div class="card">
+      <h2><i class="fas fa-users"></i> All Leads <button class="btn gray" onclick="loadLeads()" style="margin-left:auto;padding:5px 10px"><i class="fas fa-sync"></i></button></h2>
+      <div style="overflow-x:auto">
+        <table>
+          <thead><tr><th>Name</th><th>Phone</th><th>DOB</th><th>Service</th></tr></thead>
+          <tbody id="leadsBody"><tr><td colspan="4" style="text-align:center;padding:20px;color:#9ca3af">No leads yet.</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div id="tab-upload" style="display:none">
+    <div class="card">
+      <h2><i class="fas fa-image"></i> Website Logo Change</h2>
+      <p style="font-size:12px;color:#6b7280;margin-bottom:10px">Image select karein. Ye website par sab jagah dikhega.</p>
+      <input type="file" id="logoFile" accept="image/*">
+      <button class="btn" id="uploadLogoBtn"><i class="fas fa-save"></i> Save Logo</button>
+    </div>
+    <div class="card">
+      <h2><i class="fas fa-file-archive"></i> APK File Upload</h2>
+      <p style="font-size:12px;color:#6b7280;margin-bottom:10px">Yahan APK file upload karein (Testing ke liye chhoti file use karein).<br>File size limit: ~4MB (Browser LocalStorage limit).</p>
+      <input type="file" id="apkFile" accept=".apk">
+      <button class="btn" id="uploadApkBtn"><i class="fas fa-save"></i> Save APK File</button>
+      <div class="status" id="apkStatus">Current APK: <b>Loading...</b></div>
+    </div>
+    <div class="card">
+      <h2><i class="fas fa-link"></i> APK Download Link (Alternative)</h2>
+      <p style="font-size:12px;color:#6b7280;margin-bottom:10px">Agar file bada hai to direct link daalein.</p>
+      <input type="text" id="apkLinkInput" placeholder="https://example.com/app.apk">
+      <button class="btn" id="saveApkLinkBtn"><i class="fas fa-save"></i> Save Link</button>
+    </div>
+  </div>
+</div>
+<script>
+document.querySelectorAll('.nav-tabs button').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.nav-tabs button').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  document.getElementById('tab-leads').style.display = t.dataset.tab==='leads'?'block':'none';
+  document.getElementById('tab-upload').style.display = t.dataset.tab==='upload'?'block':'none';
+}));
+function loadLeads(){
+  const leads = JSON.parse(localStorage.getItem('indus_leads') || '[]');
+  const body=document.getElementById('leadsBody');
+  if(!leads.length){ body.innerHTML='<tr><td colspan="4" style="text-align:center;padding:20px;color:#9ca3af">No leads yet.</td></tr>'; return; }
+  body.innerHTML=leads.map(l=>`
+    <tr>
+      <td><b>${l.name||''}</b></td><td>${l.phone||''}</td><td>${l.dob||''}</td>
+      <td><span style="background:#fdf2f4;color:#7a0c2e;padding:2px 6px;border-radius:4px;font-size:10px">${l.serviceType||'—'}</span></td>
+    </tr>
+  `).join('');
+}
+document.getElementById('uploadLogoBtn').addEventListener('click',()=>{
+  const file = document.getElementById('logoFile').files[0];
+  if(!file){ alert('Select an image first'); return; }
+  const reader = new FileReader();
+  reader.onload = function(e){
+    localStorage.setItem('indus_custom_logo', e.target.result);
+    alert('Logo Saved! Ab aap index.html open karke dekhein.');
+  };
+  reader.readAsDataURL(file);
+});
+document.getElementById('uploadApkBtn').addEventListener('click',()=>{
+  const file = document.getElementById('apkFile').files[0];
+  if(!file){ alert('Select an APK file'); return; }
+  if(file.size > 4 * 1024 * 1024){
+    alert('File 4MB se badi hai. LocalStorage me save nahi hoga. Kripya direct link use karein.');
+    return;
+  }
+  const reader = new FileReader();
+  reader.onload = function(e){
+    try {
+      localStorage.setItem('indus_custom_apk', e.target.result);
+      document.getElementById('apkStatus').innerHTML='Current APK: <b>' + file.name + ' (Uploaded)</b>';
+      alert('APK Saved! Ab download page par ye file download hogi.');
+    } catch(err) {
+      alert('Save failed: Browser storage full. Use direct link instead.');
+    }
+  };
+  reader.readAsDataURL(file);
+});
+document.getElementById('saveApkLinkBtn').addEventListener('click',()=>{
+  const link = document.getElementById('apkLinkInput').value.trim();
+  if(!link){ alert('Enter a link'); return; }
+  localStorage.setItem('indus_custom_apk', link);
+  document.getElementById('apkStatus').innerHTML='Current APK: <b>Link Saved</b>';
+  alert('APK Link Saved!');
+});
+const savedApk = localStorage.getItem('indus_custom_apk');
+if(savedApk) {
+  document.getElementById('apkLinkInput').value = savedApk;
+  document.getElementById('apkStatus').innerHTML = 'Current APK: <b>Loaded</b>';
+}
+loadLeads();
+</script>
+</body>
+</html>
